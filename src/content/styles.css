@@ -1,0 +1,58 @@
+/* You can add global styles to this file, and also import other style files */
+/* custom style come here*/
+/*
+Student Number : 301152761
+Student Name: Sujatha Mohanram
+project : 1
+*/
+nav {
+    background-color: pink;
+ } 
+ body{
+    background-color: #FCE4EC;
+ }
+.logotext{
+    font-family: "French Script MT";
+    font-size: xx-large;
+    font-style: italic;
+    color:#b8860b;
+    font-display: #b8860b;
+}
+h1{
+    font-family: "French Script MT";
+    font: size 308px; ;
+    font-style: italic;
+    color:#b8860b;
+    font-display: #b8860b;
+}
+.bgcolor-pink{
+    background-color: pink;
+}
+bgcolor-lavender{
+    background-color: #f1a7fe;
+}
+p{
+    font-family: "Cursive";
+    font-style: italic;
+    color:darkmagenta;
+    font-size: large;
+}
+
+
+#intro {
+  background-image: url(../../../assets/images/bg-sm-xx-xx.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 90vh;
+}
+
+/* Height for devices larger than 576px */
+@media (min-width: 992px) {
+  #intro {
+    margin-top: -58.59px;
+  }
+}
+
+.navbar .nav-link {
+  color: #fff !important;
+}
