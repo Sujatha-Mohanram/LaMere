@@ -40,7 +40,7 @@ p{
 
 
 #intro {
-  background-image: url(../../../assets/images/bg-sm-xx-xx.jpg);
+  background-image: url('../assets/images/bg-sm-xx-xx.jpg');
   background-repeat: no-repeat;
   background-position: center;
   height: 90vh;
