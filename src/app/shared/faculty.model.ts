@@ -1,5 +1,5 @@
 export class Faculty {
-    "_id":number;
+    "_id":string;
     "firstname": String;
     "lastname": String;
     "schoolid": Number;

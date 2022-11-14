@@ -13,6 +13,26 @@ export class FacultyService {
 
   selectedFaculty!: Faculty;
   faculties!: Faculty[];
+  readonly baseurl = 'http://localhost:3000/faculty';
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  postFaculty(fac: Faculty)
+  {
+    return this.http.post(this.baseurl,fac);
+  }
+
+  getFacultyList()
+  {
+    return this.http.get(this.baseurl);
+  }
+
+  putFaculty(fac: Faculty){
+    return this.http.put(this.baseurl+'/${fac._id}', fac);
+  }
+
+  deleteFaculty(id: string){
+    return this.http.delete(this.baseurl+'/${_id}');
+
+  }
 }

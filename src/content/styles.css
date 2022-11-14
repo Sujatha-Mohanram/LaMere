@@ -6,53 +6,130 @@ Student Name: Sujatha Mohanram
 project : 1
 */
 nav {
-    background-color: pink;
+    background-color: pink !important;
  } 
  body{
-    background-color: #FCE4EC;
+    background-color: #FCE4EC !important;
  }
+ .navbar-band{
+
+font-family: "French Script MT" !important;
+font-size: xx-large !important;
+font-style: italic !important;
+color:#b8860b !important;
+font-display: #b8860b !important
+ }
+
+ .navbar-nav{
+  
+  font-family: "French Script MT" !important;
+  font-size: xx-large !important;
+  font-style: italic !important;
+  color:#b8860b !important;
+  font-display: #b8860b !important
+   }
+
+   .logo-navtext{
+    font-family: "French Script MT" !important;
+    font-size: 45px !important;
+    font-style: italic !important;
+    color:#b8860b !important;
+    font-display: #b8860b !important;
+
+   }
+   table{
+    border: 1px !important;
+    border-color: #b8860b !important;
+    border-style: double !important;
+    border-block-style: solid !important;
+   }
+   .boldtext{
+    font-family:"French Script MT" !important ;
+    font-size: 24px  !important;
+    font-weight: bold  !important;
+   }
+   tr{
+    border: 1px !important;
+    border-color: #b8860b !important;
+    border-style: double !important;
+    font-family: "Cursive";
+    font-size: 11px  !important;
+    font-weight: normal  !important;
+   }
+   td{
+    border: 0px !important;
+    border-color: #b8860b !important;
+    border-style: double !important;
+   }
+   .material-icons{
+   color: #b8860b !important;
+   }
 .logotext{
-    font-family: "French Script MT";
-    font-size: xx-large;
-    font-style: italic;
-    color:#b8860b;
-    font-display: #b8860b;
+    font-family: "French Script MT" !important;
+    font-size: xx-large !important;
+    font-style: italic !important;
+    color:#b8860b !important;
+    font-display: #b8860b !important;
 }
 h1{
-    font-family: "French Script MT";
-    font: size 308px; ;
-    font-style: italic;
-    color:#b8860b;
-    font-display: #b8860b;
+    font-family: "French Script MT" !important;
+   font-size:  35px !important; 
+    font-style: italic !important;
+    color:#b8860b !important;
+    font-display: #b8860b !important;
 }
 .bgcolor-pink{
-    background-color: pink;
+    background-color: pink !important;
 }
 bgcolor-lavender{
-    background-color: #f1a7fe;
+    background-color: #f1a7fe !important;
 }
 p{
-    font-family: "Cursive";
-    font-style: italic;
-    color:darkmagenta;
-    font-size: large;
+    font-family: "Cursive" !important;
+    font-style: italic !important;
+    color:darkmagenta !important;
+    font-size: large !important;
 }
 
 
 #intro {
-  background-image: url('../assets/images/bg-sm-xx-xx.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 90vh;
+  background-image: url('../assets/images/bg-sm-xx-xx.jpg') !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  height: 90vh !important;
 }
 
 /* Height for devices larger than 576px */
 @media (min-width: 992px) {
   #intro {
-    margin-top: -58.59px;
+    margin-top: -58.59px !important;
   }
 }
 
 .navbar .nav-link {
   color: #fff !important;
+}
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+  background-color:  #b8860b !important;
+  border-color: #b8860b !important;
+  
+}
+.btn-secondary{
+  background-color:  #b8860b !important;
+  border-color: #b8860b !important;
+}
+
+input.ng-invalid.ng-dirty{
+  border-bottom-color: red !important;
+  box-shadow: 0 1px 0 0 red !important;
+}
+
+.nav{
+  height: 345px !important;
+  background-color: pink;
+}
+
+.navbar-fixed{
+  height: 130px !important;
+  background-color: pink;
 }

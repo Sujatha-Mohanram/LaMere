@@ -5,47 +5,49 @@
 
     <div class="row d-flex justify-content-left">
       <div class="col-md-6">
-        <form>
+        <form #facultyForm="ngForm" (ngSubmit)="onSubmit(facultyForm)">
           <!-- 2 column grid layout with text inputs for the first and last names -->
           <div class="row mb-4">
             <div class="col">
               <div class="form-outline">
-                <input type="text" id="form3Example1" class="form-control" />
+                
+                <input type="hidden" name="_id" #id="ngModel" [(ngModel)]="facultyService.selectedFaculty._id">
+                <input type="text" class="form-control" name="firstname" #name="ngModel"  [(ngModel)]="facultyService.selectedFaculty.firstname"  placeholder="Enter First name" required/>
                 <label class="form-label" for="form3Example1">First name</label>
               </div>
             </div>
             <div class="col">
               <div class="form-outline">
-                <input type="text" id="form3Example2" class="form-control" />
-                <label class="form-label" for="form3Example2">Last name</label>
+                <input type="text" class="form-control" name="lastname" #name="ngModel"  [(ngModel)]="facultyService.selectedFaculty.lastname"  placeholder="Enter Last name" required/>
+                <label class="form-label" for="lastname">Last name</label>
               </div>
             </div>
           </div>
           <div class="row mb-4">
             <div class="col">
               <div class="form-outline">
-                <input type="text" id="form3Example1" class="form-control" />
-                <label class="form-label" for="form3Example1">School ID</label>
+                <input type="text" class="form-control" name="schoolid" #name="ngModel"  [(ngModel)]="facultyService.selectedFaculty.schoolid"  placeholder="Enter SchoolID" required/>
+                <label class="form-label" for="schoolid">School ID</label>
               </div>
             </div>
             <div class="col">
               <div class="form-outline">
-                <input type="text" id="form3Example2" class="form-control" />
-                <label class="form-label" for="form3Example2">Email</label>
+                <input type="email" class="form-control" name="email" #name="ngModel"  [(ngModel)]="facultyService.selectedFaculty.email"  placeholder="Enter Email" required/>
+                <label class="form-label" for="email">Email</label>
               </div>
             </div>
           </div>
           <div class="row mb-4">
             <div class="col">
               <div class="form-outline">
-                <input type="text" id="form3Example1" class="form-control" />
-                <label class="form-label" for="form3Example1">Password</label>
+                <input type="password" class="form-control" name="password" #name="ngModel"  [(ngModel)]="facultyService.selectedFaculty.password"  placeholder="Enter Password" required/>
+                <label class="form-label" for="password">Password</label>
               </div>
             </div>
             <div class="col">
               <div class="form-outline">
-                <input type="text" id="form3Example2" class="form-control" />
-                <label class="form-label" for="form3Example2">Date Created</label>
+                <input type="text" class="form-control" name="datecreated" #name="ngModel"  [(ngModel)]="facultyService.selectedFaculty.datecreated"  placeholder="Enter Date Created" required/>
+                <label class="form-label" for="datecreated">Date Created</label>
               </div>
             </div>
           </div>
@@ -56,13 +58,55 @@
           <!-- Checkbox -->
          
           <!-- Submit button -->
-          <button type="submit" class="btn btn-primary btn-block mb-4">
-            Create Faculty
-          </button>
+          <div class="row mb-4">
+            <div class="col">
+                <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!facultyForm.valid" >
+                  Create Faculty
+                </button>
+              </div>
+              <div class="col">
+
+                <button type="button" class="btn btn-primary btn-block mb-4" (click)="resetForm(facultyForm)">
+                  Reset
+                </button>
+                </div>
+              </div>
 
           <!-- Register buttons -->
          
         </form>
+        
+      </div>
+      <div class="col-md-6">
+        <table class="bordered striped centered highlight responsive-table" border="1" style="border-color:darkgoldenrod">
+          <thead class="boldtext">
+            <tr>
+              <td class="boldtext"> First Name :</td>
+              <td class="boldtext"> Last Name :</td>
+              <td class="boldtext"> Email : </td>
+              <td class="boldtext"> Date created :</td>
+              <td class="boldtext"></td>
+              <td class="boldtext"></td>
+            </tr>
+            <tr *ngFor="let fac of facultyService.faculties">
+              <td>{{fac.firstname}}</td>
+              <td>{{fac.lastname}}</td>
+              <td>{{fac.email}}</td>
+              <td>{{fac.datecreated}}</td>
+              <td>
+                <a class="action-btn">
+                  <i class="material-icons" (click)="onEdit(fac)">edit</i>
+                </a>
+              </td>
+              <td>
+                <a class="action-btn">
+                 
+                  <i class="material-icons" (click)="onDelete(facultyService.selectedFaculty._id,facultyForm)">delete</i>
+                </a>
+              </td>
+            </tr>
+          </thead>
+        </table>
       </div>
     </div>
   </section>
