@@ -63,7 +63,8 @@ export class FacultyComponent extends BasePageComponent  implements OnInit {
   refreshFacultyList()
   {
     this.facultyService.getFacultyList().subscribe((res)=>{
-      this.facultyService.faculties=res as Faculty[];
+      //this.facultyService.faculties=res as Faculty[];
+      this.facultyService.faculties=Object.values(res);
     })
   }
 
