@@ -13,7 +13,7 @@ export class FacultyService {
 
   selectedFaculty!: Faculty;
   faculties!: Faculty[];
-  readonly baseurl = 'http://localhost:3000/faculty';
+  readonly baseurl =  readonly baseurl =   'https://lamere-fefef-default-rtdb.firebaseio.com/faculty.json';//'http://localhost:3000/faculty';
 
   constructor(private http: HttpClient) { }
 
