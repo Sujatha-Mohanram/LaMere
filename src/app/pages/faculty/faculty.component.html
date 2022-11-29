@@ -1,5 +1,5 @@
 <app-base-page></app-base-page>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section class="mb-5">
     <h4 class="mb-5 text-center"><strong class="logotext">Faculty Details</strong></h4>
 
@@ -60,7 +60,7 @@
           <!-- Submit button -->
           <div class="row mb-4">
             <div class="col">
-                <button type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!facultyForm.valid" >
+                <button  type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!facultyForm.valid" >
                   Create Faculty
                 </button>
               </div>
@@ -101,7 +101,7 @@
               <td>
                 <a class="action-btn">
                  
-                  <i class="material-icons" (click)="onDelete(facultyService.selectedFaculty._id,facultyForm)">delete</i>
+                  <i class="material-icons" (click)="onDelete(fac._id,facultyForm)">delete</i>
                 </a>
               </td>
             </tr>
@@ -109,4 +109,4 @@
         </table>
       </div>
     </div>
-  </section>
+     </section>

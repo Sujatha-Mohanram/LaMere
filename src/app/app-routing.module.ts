@@ -6,6 +6,8 @@ import { FacultyComponent } from './pages/faculty/faculty.component';
 import { HomeComponent } from './pages/home/home.component';
 import { StudentsComponent } from './pages/students/students.component';
 import { SubjectsComponent } from './pages/subjects/subjects.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 
 const routes: Routes = [
@@ -15,6 +17,8 @@ const routes: Routes = [
   {path: 'subjects', component: SubjectsComponent, data: {'title': 'Subjects'}},
   {path: 'classes', component: ClassesComponent, data: {'title': 'Classes'}},
   {path: 'contact', component: ContactComponent, data: {'title': 'Contact'}},
+  {path: 'login', component: LoginComponent, data: {'title': 'Login'}},
+  {path: 'register', component: RegisterComponent, data: {'title': 'Register'}},
   {path: '', redirectTo:'/home',pathMatch: 'full'}
 ];
 
