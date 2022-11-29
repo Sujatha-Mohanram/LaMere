@@ -44,43 +44,45 @@ export class FacultyComponent extends BasePageComponent  implements OnInit {
 
   onSubmit(form: NgForm)
   {
-    if(form.value._id ==""){
-    this.facultyService.postFaculty(form.value).subscribe((res)=>{
+    const id =form.value._id;
+    console.log(form.value._id);
+    if(id !=null && id.length>0){
+      this.facultyService.putFaculty(form.value);
       this.resetForm(form);
       this.refreshFacultyList();
-      M.toast({html:'Saved Successfully', classes:'rounded'});
-    });
+     // M.toast({html:'Saved Successfully', classes:'rounded'});
+   
   }
   else{
-    this.facultyService.putFaculty(form.value).subscribe((res)=>{
-      this.resetForm(form);
-      this.refreshFacultyList();
-      M.toast({html:'Updated Successfully', classes:'rounded'});
-    });
+    
+    this.facultyService.postFaculty(form.value);
+    this.resetForm(form);
+    this.refreshFacultyList();
+     // M.toast({html:'Updated Successfully', classes:'rounded'});
+    
   }
   }
 
-  refreshFacultyList()
+   refreshFacultyList()
   {
-    this.facultyService.getFacultyList().subscribe((res)=>{
-      //this.facultyService.faculties=res as Faculty[];
-      this.facultyService.faculties=Object.values(res);
-    })
+    this.facultyService.faculties = this.facultyService.getFacultyList();
+   
   }
 
   onEdit(fac: Faculty)
   {
+    this.facultyService.editFaculty(fac._id);
     this.facultyService.selectedFaculty = fac;
   }
 
   onDelete(_id: string, form: NgForm){
     if(confirm('Are you sure to delete this record ?') == true ) {
-      console.log('deleting');
-      this.facultyService.deleteFaculty(_id).subscribe((res)=>{
-        this.refreshFacultyList();
-        this.resetForm(form);
-        M.toast({html:"Deleted successfully",classes:'rounded'});
-      });
+      console.log('deleting'+_id);
+      this.facultyService.deleteFaculty(_id)
+      this.refreshFacultyList();
+      this.resetForm(form);
+        //M.toast({html:"Deleted successfully",classes:'rounded'});
+    
     }
   }
 
