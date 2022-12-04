@@ -1,1 +1,98 @@
 <app-base-page></app-base-page>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<section class="mb-5">
+    <h4 class="mb-5 text-center"><strong class="logotext">Subject Details</strong></h4>
+
+    <div class="row d-flex justify-content-left">
+      <div class="col-md-6">
+        <form #classForm="ngForm" (ngSubmit)="onSubmit(classForm)">
+          <!-- 2 column grid layout with text inputs for the first and last names -->
+          <div class="row mb-4">
+            <div class="col">
+              <div class="form-outline">
+                
+                <input type="hidden" name="_id" #id="ngModel" [(ngModel)]="classService.selectedClass._id">
+                <input type="text" class="form-control" name="year" #name="ngModel"  [(ngModel)]="classService.selectedClass.year"  placeholder="Enter  Year" required/>
+                <label class="form-label" for="year">Year</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" class="form-control" name="date" #name="ngModel"  [(ngModel)]="classService.selectedClass.date"  placeholder="Enter Date" required/>
+                <label class="form-label" for="date">Date</label>
+              </div>
+            </div>
+          </div>
+          <div class="row mb-4">
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" class="form-control" name="time" #name="ngModel"  [(ngModel)]="classService.selectedClass.time"  placeholder="Enter Time" required/>
+                <label class="form-label" for="date">Time</label>
+              </div>
+            </div>
+            <div class="col">
+              <div class="form-outline">
+                <input type="text" class="form-control" name="frequency" #name="ngModel"  [(ngModel)]="classService.selectedClass.frequency"  placeholder="Enter Frequency" required/>
+                <label class="form-label" for="frequency">Frequency</label>
+              </div>
+            </div>
+          </div>
+         
+
+          <!-- Email input -->
+         
+          <!-- Checkbox -->
+         
+          <!-- Submit button -->
+          <div class="row mb-4">
+            <div class="col">
+                <button  type="submit" class="btn btn-primary btn-block mb-4" [disabled]="!classForm.valid" >
+                  Create Class
+                </button>
+              </div>
+              <div class="col">
+
+                <button type="button" class="btn btn-primary btn-block mb-4" (click)="resetForm(classForm)">
+                  Reset
+                </button>
+                </div>
+              </div>
+
+          <!-- Register buttons -->
+         
+        </form>
+        
+      </div>
+      <div class="col-md-6">
+        <table class="bordered striped centered highlight responsive-table" border="1" style="border-color:darkgoldenrod">
+          <thead class="boldtext">
+            <tr>
+              <td class="boldtext"> Year :</td>
+              <td class="boldtext"> Date :</td>
+              <td class="boldtext"> Time : </td>
+              <td class="boldtext"> Frequency :</td>
+              <td class="boldtext"></td>
+              <td class="boldtext"></td>
+            </tr>
+            <tr *ngFor="let clas of classService.classes">
+              <td>{{clas.year}}</td>
+              <td>{{clas.date}}</td>
+              <td>{{clas.time}}</td>
+              <td>{{clas.frequency}}</td>
+              <td>
+                <a class="action-btn">
+                  <i class="material-icons" (click)="onEdit(clas)">edit</i>
+                </a>
+              </td>
+              <td>
+                <a class="action-btn">
+                 
+                  <i class="material-icons" (click)="onDelete(clas._id,classForm)">delete</i>
+                </a>
+              </td>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+     </section>

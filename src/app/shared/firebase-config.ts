@@ -22,5 +22,9 @@ const firebaseConfig = {
 
   // get the collection reference
    const colRef = collection(db,'faculty');
+   const colRefStudent = collection(db,'student');
+   const colRefSubject = collection(db,'subject');
+   const colRefClass = collection(db,'class');
+
    
- export { colRef, db}
+ export { colRef, db, colRefStudent, colRefSubject, colRefClass}
