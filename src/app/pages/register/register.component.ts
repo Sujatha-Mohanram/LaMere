@@ -7,16 +7,18 @@ import {RegisterService } from './register.service'
 import { User } from 'src/app/shared/user.model'; 
 
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, timestamp } from 'rxjs';
 import { colRef,db } from '../../shared/firebase-config';
 import {
   getFirestore, collection, getDocs, onSnapshot,
   addDoc, deleteDoc, doc, query, where, orderBy,serverTimestamp,
-  getDoc, updateDoc
+  getDoc, updateDoc, setDoc
 } from 'firebase/firestore'
 import {
-  getAuth, createUserWithEmailAndPassword
+  getAuth, createUserWithEmailAndPassword, updateCurrentUser, UserCredential
 } from 'firebase/auth'
+
+
 
 
 @Component({
@@ -27,7 +29,9 @@ import {
 
 })
 export class RegisterComponent implements OnInit {
-
+user!: User
+displayName !: string;
+email !: string;
   constructor(route:ActivatedRoute,public registerService: RegisterService) {
     //super(route);
   }
@@ -39,13 +43,21 @@ export class RegisterComponent implements OnInit {
   console.log(form.value.email + " "+ form.value.password);
   const auth = getAuth();
   createUserWithEmailAndPassword(auth,form.value.email,form.value.password)
-  .then((cred)=>{
-console.log("user created:",cred.user);
-form.reset();
-  })
-  .catch((err)=>{
-    console.log(err.message);
-  })
-  //this.registerService.postUser(form.value);
+      .then((cred)=>{
+          setDoc(doc(db, 'users', cred.user.uid), { username: form.value.displayName})
+          .then(()=>{
+            const message= document.getElementById('message');
+              if(message!==null)
+              message.innerHTML="user created successfully :"
+              form.reset();
+
+          })
+     })
+        .catch((err)=>{
+          console.log(err.message);
+        })
+ 
+
+  
 }
 }

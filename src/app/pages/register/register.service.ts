@@ -18,6 +18,7 @@ import { User } from 'src/app/shared/user.model';
 export class RegisterService {
  email!: string;
  password!: string;
+ displayName!: string;
  user!: User;
  
 

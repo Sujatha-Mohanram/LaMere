@@ -27,7 +27,8 @@ import {
   providers: [ LoginService]
 })
 export class LoginComponent implements OnInit {
-user!: User 
+user!: User ;
+displayName !: string;
   constructor(route:ActivatedRoute,public loginService: LoginService) {
     //super(route);
   }
@@ -43,7 +44,7 @@ user!: User
     signInWithEmailAndPassword(auth,form.value.email,form.value.password)
     .then((cred)=>{
   console.log("user logged In:",cred.user);
-  form.reset();
+    form.reset();
     })
     .catch((err)=>{
       console.log(err.message);
@@ -68,10 +69,17 @@ user!: User
     const auth = getAuth();
     let email: string='';
     onAuthStateChanged(auth,(user)=>{
-      email =<any>auth.currentUser?.email;
-      console.log('user state changed:'+ user + email);
+      if(user)
+      {
+        console.log("user logged in: " +user.uid);
+      }
+      else{
+        console.log('user not logged in')
+      }
+     // email =<any>auth.currentUser?.email;
+      console.log('user state changed:'+ user);
     })
-    this.user.userstatus = 'loggedIn';
+   // this.user.userstatus = 'loggedIn';
     if(auth.currentUser != null){
     //  this.user.email=email;
     }

@@ -1,1 +1,28 @@
 <app-base-page></app-base-page>
+<app-base-page></app-base-page>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<section class="mb-5">
+    <div id="nouser" class="boldtext"></div>
+    
+<div id="errormsg"></div>
+    <div class="justify-content-center">
+        <div  id="onlyloggedIn" style="display:none">
+            <h4 class="mb-5 text-center"><strong class="logotext">Your Details</strong></h4>
+        <table class="bordered striped centered highlight responsive-table" border="1" style="border-color:darkgoldenrod" >
+
+            <tr >
+              <td class="boldtext"> Display Name :</td>
+              <td class="boldtext"> Email : </td>
+              <td class="boldtext"> Date created :</td>
+            </tr>
+           
+           <tr  id="userdetails" style="display:none" >
+            <td>{{username}}</td>
+            <td>{{email}}</td>
+            <td>{{username}}</td>
+        </tr>
+          
+        </table>
+      </div>
+    </div>
+     </section>

@@ -147,3 +147,19 @@ input.ng-invalid.ng-dirty{
 .signup a:hover{
   text-decoration: underline;
 }
+
+.message{
+  font-family: "French Script MT" !important;
+  font-size: 25px !important;
+  font-style: italic !important;
+  color:#b8860b !important;
+  font-display: #b8860b !important;
+
+}
+.errormessage{
+  font-family: "French Script MT" !important;
+  font-size: 25px !important;
+  font-style: italic !important;
+  color:#b80b0b !important;
+  font-display: #b8860b !important;
+}

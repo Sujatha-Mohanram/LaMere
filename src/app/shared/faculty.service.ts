@@ -30,6 +30,12 @@ export class FacultyService {
       addDoc(colRef,fac)
       .then(()=>{
       this.selectedFaculty != null;
+      }).catch(err=>{
+        const error = document.getElementById('errormsg');
+        if(error !=null){
+        error.innerHTML = `<span class='errormessage'>${err.message}</span>`;
+        }
+        console.log(err.message);
       })
     return this.faculties;//this.http.post(this.baseurl,fac);
   }
@@ -61,7 +67,13 @@ export class FacultyService {
       
     }).then(()=>{
       this.selectedFaculty == null;
-      });
+      }).catch(err=>{
+        const error = document.getElementById('errormsg');
+        if(error !=null){
+        error.innerHTML = `<span class='errormessage'>${err.message}</span>`;
+        }
+        console.log(err.message);
+      })
       /*addDoc(colRef,fac)
       .then(()=>{
       this.selectedFaculty == null;
@@ -77,7 +89,13 @@ export class FacultyService {
     deleteDoc(docRef)
     .then(()=>{
       this.selectedFaculty == null;
-    });
+    }).catch(err=>{
+      const error = document.getElementById('errormsg');
+      if(error !=null){
+      error.innerHTML = `<span class='errormessage'>${err.message}</span>`;
+      }
+      console.log(err.message);
+    })
     return //this.http.delete(this.baseurl+'/${_id}');
 
   }

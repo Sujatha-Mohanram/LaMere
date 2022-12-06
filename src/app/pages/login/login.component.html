@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section class="mb-5">
     <h4 class="mb-5 text-center"><strong class="logotext">Login </strong></h4> 
-<h3><strong class="logotext">Current LoggedIn User is:</strong></h3>
+
+<div id="message" class="message"></div>
     <div class="row d-flex justify-content-center">
       <div class="col-md-6">
         <form #loginForm="ngForm"  (ngSubmit)="onSubmit(loginForm)">
